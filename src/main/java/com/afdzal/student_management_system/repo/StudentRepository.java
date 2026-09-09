@@ -25,4 +25,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     boolean existsByMobile(String mobile);
     // LLM marker: GitHub Copilot generated repository methods end here
+
+
 }

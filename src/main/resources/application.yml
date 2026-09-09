@@ -2,22 +2,33 @@ server:
   port: 8080
 
 spring:
+  profiles:
+    active: dev
   application:
     name: student-management-system
-  
+
   datasource:
     url: jdbc:h2:mem:studentdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    driverClassName: org.h2.Driver
+    driver-class-name: org.h2.Driver
     username: sa
     password:
-  
+
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
     hibernate:
       ddl-auto: update
-  
+
   h2:
     console:
       enabled: true
       path: /h2-console
+
+
+
+  ai:
+    google:
+      genai:
+        api-key: AQ.Ab8RN6L5xTkcPLd-9wk96fRFPbvrzue1Xe0xU1K9V6HiuvyOEw
+        chat:
+          model: gemini-3.5-flash
