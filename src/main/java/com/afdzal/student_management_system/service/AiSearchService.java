@@ -18,15 +18,11 @@ public class AiSearchService {
     private final StudentRepository studentRepository;
     private final ObjectMapper objectMapper;
 
-    public AiSearchService(ChatClient.Builder chatClientBuilder, StudentRepository studentRepository) {
-        this.chatClient = chatClientBuilder
-                .defaultOptions(GoogleGenAiChatOptions.builder()
-                        .model("gemini-3.6-flash")
-                        .build())
-                .build();
+public AiSearchService(ChatClient.Builder chatClientBuilder, StudentRepository studentRepository) {
+        //Let Spring Boot's auto-configuration (your YAML) decide the model!
+        this.chatClient = chatClientBuilder.build(); 
         this.studentRepository = studentRepository;
         
-        // Initialize ObjectMapper and register the Java 8 Time module for LocalDateTime
         this.objectMapper = new ObjectMapper();
         this.objectMapper.registerModule(new JavaTimeModule());
     }

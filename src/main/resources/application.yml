@@ -1,6 +1,10 @@
 server:
   port: 8080
 
+logging:
+  level:
+    "[org.springframework.ai]": DEBUG
+
 spring:
   profiles:
     active: dev
@@ -27,8 +31,15 @@ spring:
 
 
   ai:
+    model:
+      chat: ollama
     google:
       genai:
         api-key: AQ.Ab8RN6L5xTkcPLd-9wk96fRFPbvrzue1Xe0xU1K9V6HiuvyOEw
         chat:
           model: gemini-3.5-flash
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: llama3.1
